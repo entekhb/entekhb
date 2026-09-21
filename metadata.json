@@ -1,0 +1,6 @@
+{
+  "name": "aimo – Targeted Content & Modern Web Agency",
+  "description": "aimo (aimoads.site) crafts revenue-driven content, dynamic video editing, high-converting Instagram carousels, and modern websites that turn viewers into paying clients.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
