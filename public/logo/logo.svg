@@ -1,0 +1,125 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Background Tile Gradient -->
+    <linearGradient id="tileBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6719B5" />
+      <stop offset="50%" stop-color="#5E14A7" />
+      <stop offset="100%" stop-color="#520E94" />
+    </linearGradient>
+
+    <!-- Outer Bevel Rim -->
+    <linearGradient id="bevelGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8833E6" />
+      <stop offset="50%" stop-color="#6F1EC3" />
+      <stop offset="100%" stop-color="#3D086E" />
+    </linearGradient>
+
+    <!-- 3D Puffy Letter Drop Shadow onto purple floor -->
+    <filter id="puffyShadow" x="-20%" y="-20%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="32" stdDeviation="24" flood-color="#18022B" flood-opacity="0.65" />
+      <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#10011E" flood-opacity="0.45" />
+    </filter>
+
+    <!-- 3D Tube Primary Shading -->
+    <linearGradient id="tubeBody" x1="25%" y1="15%" x2="75%" y2="85%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="35%" stop-color="#FCFBFE" />
+      <stop offset="65%" stop-color="#EFE9F8" />
+      <stop offset="88%" stop-color="#D8C8ED" />
+      <stop offset="100%" stop-color="#BDABDC" />
+    </linearGradient>
+
+    <!-- Specular Highlight Crest -->
+    <linearGradient id="specularGleam" x1="20%" y1="10%" x2="50%" y2="60%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.95" />
+      <stop offset="50%" stop-color="#FFFFFF" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Bottom Bounce Lavender Reflect -->
+    <linearGradient id="lavenderBounce" x1="50%" y1="100%" x2="50%" y2="20%">
+      <stop offset="0%" stop-color="#CBB3EC" stop-opacity="0.75" />
+      <stop offset="45%" stop-color="#E9DEF8" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Inner Hole Ambient Occlusion Depth -->
+    <radialGradient id="holeDepth" cx="44%" cy="42%" r="55%">
+      <stop offset="0%" stop-color="#28034A" stop-opacity="0.8" />
+      <stop offset="70%" stop-color="#490D7F" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#5E14A7" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- 1. Background Purple Squircle Tile -->
+  <rect x="16" y="16" width="992" height="992" rx="200" fill="url(#tileBg)" />
+  <rect x="22" y="22" width="980" height="980" rx="194" stroke="url(#bevelGrad)" stroke-width="12" fill="none" opacity="0.8" />
+  <rect x="36" y="36" width="952" height="952" rx="180" stroke="#36065E" stroke-width="4" fill="none" opacity="0.3" />
+
+  <!-- 2. The 3D Puffy Letter "a" -->
+  <g filter="url(#puffyShadow)">
+    <!-- Base 3D Geometry: Modern puffy lowercase letter "a" -->
+    <!--
+      Center of circular bowl: (470, 512)
+      Outer circle radius: 290 -> bounds [180 .. 760]
+      Inner circle radius: 155 -> hole bounds [315 .. 625]
+      Right stem: attached to right side of bowl from x ~ 615 down to 735,
+      straight down to y = 735, rounded bulb with radius 110 at center (640, 720).
+    -->
+    <path
+      d="
+        M 470 222
+        C 630.2 222 760 351.8 760 512
+        C 760 540 755 570 748 600
+        L 748 715
+        C 748 775.8 698.8 825 638 825
+        C 588 825 544.5 791.5 532 743
+        C 512 755 491 762 470 762
+        C 332 762 220 650 220 512
+        C 220 351.8 332 222 470 222
+        Z
+        M 470 367
+        C 390 367 325 432 325 512
+        C 325 592 390 657 470 657
+        C 550 657 615 592 615 512
+        C 615 432 550 367 470 367
+        Z
+      "
+      fill="url(#tubeBody)"
+      fill-rule="evenodd"
+    />
+
+    <!-- Ambient lavender bounce reflection on underside -->
+    <path
+      d="
+        M 260 590
+        C 290 710 390 762 470 762
+        C 512 762 550 748 580 725
+        C 575 770 610 825 638 825
+        C 698.8 825 748 775.8 748 715
+        L 748 660
+        C 715 740 640 760 590 730
+        C 545 748 490 755 450 750
+        C 360 740 280 670 260 590
+        Z
+      "
+      fill="url(#lavenderBounce)"
+    />
+
+    <!-- Top-Left Crest Specular Gleam -->
+    <path
+      d="
+        M 470 236
+        C 345 236 245 336 245 460
+        C 245 420 330 270 470 255
+        C 570 245 660 300 705 375
+        C 670 290 580 236 470 236
+        Z
+      "
+      fill="url(#specularGleam)"
+    />
+
+    <!-- Hole Ambient Occlusion (inner shadow for realistic 3D depth) -->
+    <ellipse cx="455" cy="495" rx="145" ry="145" fill="url(#holeDepth)" />
+  </g>
+</svg>

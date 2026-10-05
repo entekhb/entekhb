@@ -1,0 +1,156 @@
+<svg width="1000" height="1000" viewBox="0 0 1000 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Background tile base -->
+    <linearGradient id="tileBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6519AE" />
+      <stop offset="50%" stop-color="#6015A7" />
+      <stop offset="100%" stop-color="#551096" />
+    </linearGradient>
+
+    <!-- Top & Left Bevel Highlight -->
+    <linearGradient id="bevelTopLeft" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8835E3" />
+      <stop offset="40%" stop-color="#7926D2" />
+      <stop offset="100%" stop-color="#420B78" />
+    </linearGradient>
+
+    <!-- 3D Puffy Letter Drop Shadow onto purple floor -->
+    <filter id="puffyDropShadow" x="-30%" y="-25%" width="160%" height="165%">
+      <feDropShadow dx="0" dy="38" stdDeviation="28" flood-color="#18032D" flood-opacity="0.68" />
+      <feDropShadow dx="0" dy="12" stdDeviation="10" flood-color="#100120" flood-opacity="0.5" />
+    </filter>
+
+    <!-- 3D White Inflatable Tube Shading Gradient -->
+    <linearGradient id="tubeShading" x1="22%" y1="16%" x2="78%" y2="84%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="30%" stop-color="#FCFAFE" />
+      <stop offset="60%" stop-color="#EFE8F9" />
+      <stop offset="85%" stop-color="#D8C6EE" />
+      <stop offset="100%" stop-color="#BEA8DF" />
+    </linearGradient>
+
+    <!-- Soft Diffuse Top-Left Specular Bloom -->
+    <linearGradient id="topSpecular" x1="18%" y1="10%" x2="55%" y2="50%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.95" />
+      <stop offset="45%" stop-color="#FFFFFF" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Lavender Bounce on lower curves -->
+    <linearGradient id="bottomBounce" x1="50%" y1="100%" x2="50%" y2="0%">
+      <stop offset="0%" stop-color="#B28CE5" stop-opacity="0.8" />
+      <stop offset="40%" stop-color="#D6C2F0" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Center hole depth shadow -->
+    <radialGradient id="holeDepth" cx="46%" cy="44%" r="52%">
+      <stop offset="0%" stop-color="#2F0558" stop-opacity="0.85" />
+      <stop offset="65%" stop-color="#470A82" stop-opacity="0.45" />
+      <stop offset="100%" stop-color="#6015A7" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- 1. Background Square Tile with Beveled Rim (as in user's image) -->
+  <rect x="12" y="12" width="976" height="976" rx="80" ry="80" fill="url(#tileBg)" />
+  
+  <!-- Outer Bevel Rim -->
+  <rect x="16" y="16" width="968" height="968" rx="76" ry="76" stroke="url(#bevelTopLeft)" stroke-width="10" fill="none" />
+  <rect x="26" y="26" width="948" height="948" rx="68" ry="68" stroke="#320658" stroke-width="4" fill="none" opacity="0.45" />
+
+  <!-- 2. The 3D Puffy Letter 'a' (Torus bowl + bottom-right spur matching exact proportions) -->
+  <g filter="url(#puffyDropShadow)">
+    <!-- Main Inflatable Geometry: 
+         - Center: (480, 480)
+         - Outer bowl: R = 340
+         - Inner bowl: R = 170 (tube radius = 85, thickness = 170)
+         - Bottom-right spur: extends to center (730, 730), cap radius = 85
+    -->
+    <path
+      d="
+        M 480 140
+        C 667.8 140 820 292.2 820 480
+        C 820 545 801.8 605.8 770.4 657.4
+        L 788 675
+        C 821.1 708.1 821.1 761.9 788 795
+        C 754.9 828.1 701.1 828.1 668 795
+        L 645 772
+        C 595.6 802.4 539.4 820 480 820
+        C 292.2 820 140 667.8 140 480
+        C 140 292.2 292.2 140 480 140
+        Z
+        M 480 310
+        C 386.1 310 310 386.1 310 480
+        C 310 573.9 386.1 650 480 650
+        C 573.9 650 650 573.9 650 480
+        C 650 386.1 573.9 310 480 310
+        Z
+      "
+      fill="url(#tubeShading)"
+      fill-rule="evenodd"
+    />
+
+    <!-- Ambient Lavender Bounce on Lower Underside of bowl and spur -->
+    <path
+      d="
+        M 180 540
+        C 210 720 360 820 480 820
+        C 535 820 590 804 638 775
+        L 668 795
+        C 701.1 828.1 754.9 828.1 788 795
+        C 812 771 818 735 804 706
+        L 770.4 657.4
+        C 738 640 690 680 625 700
+        C 525 735 340 720 180 540
+        Z
+      "
+      fill="url(#bottomBounce)"
+    />
+
+    <!-- Specular Highlight Arc on Top-Left Shoulder of the Ring -->
+    <path
+      d="
+        M 255 350
+        C 305 240 400 185 505 185
+        C 600 185 685 228 740 300
+      "
+      stroke="url(#topSpecular)"
+      stroke-width="40"
+      stroke-linecap="round"
+    />
+
+    <!-- Core Bright Glossy Streak -->
+    <path
+      d="
+        M 300 315
+        C 350 248 425 212 500 212
+        C 555 212 612 230 660 268
+      "
+      stroke="#FFFFFF"
+      stroke-width="20"
+      stroke-linecap="round"
+      stroke-opacity="0.95"
+    />
+
+    <!-- Spur Rounded Cap Specular Highlight -->
+    <path
+      d="M 740 805 C 765 810 782 795 788 775"
+      stroke="#FFFFFF"
+      stroke-width="16"
+      stroke-linecap="round"
+      stroke-opacity="0.85"
+    />
+
+    <!-- Inner Hole Occlusion Depth Shadow -->
+    <ellipse cx="472" cy="470" rx="165" ry="165" fill="url(#holeDepth)" />
+
+    <!-- Inner Hole Lower-Right Rim Light Reflection -->
+    <path
+      d="M 365 610 C 430 645 525 645 595 605"
+      stroke="#FFFFFF"
+      stroke-width="16"
+      stroke-linecap="round"
+      stroke-opacity="0.6"
+    />
+  </g>
+</svg>

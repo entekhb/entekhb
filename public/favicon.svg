@@ -1,0 +1,22 @@
+<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="squircleBg" x1="12%" y1="8%" x2="88%" y2="92%">
+      <stop offset="0%" stop-color="#7C3AED" />
+      <stop offset="40%" stop-color="#6D28D9" />
+      <stop offset="100%" stop-color="#4C1D95" />
+    </linearGradient>
+    <linearGradient id="puffyA" x1="25%" y1="15%" x2="80%" y2="85%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="70%" stop-color="#EDE9FE" />
+      <stop offset="100%" stop-color="#C4B5FD" />
+    </linearGradient>
+    <filter id="puffyShadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="4" stdDeviation="3" flood-color="#240750" flood-opacity="0.6" />
+    </filter>
+  </defs>
+  <path d="M 6 30 C 6 14 14 6 30 6 L 70 6 C 86 6 94 14 94 30 L 94 70 C 94 86 86 94 70 94 L 30 94 C 14 94 6 86 6 70 Z" fill="url(#squircleBg)" />
+  <g filter="url(#puffyShadow)">
+    <path d="M 69 26 C 74 26 77 29.5 77 34.5 L 77 69 C 77 74.5 73.5 78 68.5 78 C 64.5 78 61.8 75.8 60.5 72.8 C 56.5 76.5 50.8 78.5 44 78.5 C 30.5 78.5 21 68.2 21 54 C 21 39.8 30.8 29.5 44.5 29.5 C 51.5 29.5 57 32.5 60.8 36.8 L 60.8 34.5 C 60.8 29.5 64.2 26 69 26 Z M 45 40.5 C 36.8 40.5 31.8 46.2 31.8 54 C 31.8 61.8 36.8 67.5 45 67.5 C 52.8 67.5 61 62.2 61 54 C 61 45.8 52.8 40.5 45 40.5 Z" fill="url(#puffyA)" fill-rule="evenodd" />
+    <path d="M 35 34 C 40 31.5 47 31 54 32.5 C 58 33.5 60.5 35.5 62 38" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-opacity="0.9" />
+  </g>
+</svg>
